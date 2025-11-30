@@ -26,7 +26,6 @@
             width: 100%;
             background-color: var(--bg-color);
             overflow: hidden;
-            /* Lock scroll, full page feel */
             font-family: var(--font-stack);
             color: var(--text-main);
             cursor: crosshair;
@@ -68,14 +67,7 @@
             opacity: 0;
         }
 
-        .subtitle {
-            font-size: 0.7rem;
-            letter-spacing: 0.2rem;
-            color: var(--text-sub);
-            margin-bottom: 2rem;
-            animation: fadeUp 3s ease-out forwards;
-            opacity: 0;
-        }
+        /* NOTE: .subtitle section has been removed */
 
         .motto {
             font-size: 0.55rem;
@@ -85,6 +77,13 @@
             margin-bottom: 4rem;
             animation: fadeUp 4s ease-out forwards;
             opacity: 0;
+        }
+
+        /* --- CTA GROUP STYLES --- */
+        .cta-group {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
         }
 
         .terminal-btn {
@@ -99,12 +98,31 @@
             opacity: 0;
             position: relative;
             background: rgba(0, 0, 0, 0.5);
+            margin-bottom: 15px;
+            /* Adds space between buttons */
         }
 
         .terminal-btn:hover {
             border-color: #444;
             color: #888;
             background: rgba(20, 20, 20, 0.8);
+        }
+
+        /* --- Ghost Login Button Style --- */
+        .terminal-btn.ghost {
+            border-color: #1a1a1a;
+            color: #333;
+            padding: 8px 18px;
+            font-size: 0.65rem;
+            pointer-events: none;
+            /* Makes it unclickable */
+            animation-delay: 6s;
+        }
+
+        .terminal-btn.ghost:hover {
+            border-color: #1a1a1a;
+            color: #333;
+            background: transparent;
         }
 
         .cursor {
@@ -114,6 +132,7 @@
             animation: blink 1s infinite;
         }
 
+        /* --- FOOTER --- */
         .footer {
             position: absolute;
             bottom: 30px;
@@ -160,14 +179,19 @@
             "EX SILENTIO, SCIENTIA"
         </div>
 
-        <a href="mailto:contact@novaaetus.com?subject=NOVA%20HANDSHAKE%20%3A%3A%20[SECURE]" class="terminal-btn">
-            INITIATE HANDSHAKE<span class="cursor">_</span>
-        </a>
-
-        <div class="footer">
-            <a href="about.html" style="color: #444; text-decoration: none; margin-right: 15px;">DOCUMENTATION</a>
-            //ENCRYPTION: 256-BIT // LATENCY: 0.04ms // NODE: US-EAST-VA
+        <div class="cta-group">
+            <a href="mailto:contact@novaaetus.com?subject=NOVA%20HANDSHAKE%20%3A%3A%20[SECURE]" class="terminal-btn">
+                INITIATE HANDSHAKE<span class="cursor">_</span>
+            </a>
+            <a href="#" class="terminal-btn ghost">
+                CLIENT PORTAL ACCESS [PRIVATE]
+            </a>
         </div>
+    </div>
+
+    <div class="footer">
+        <a href="about.html" style="color: #444; text-decoration: none; margin-right: 15px;">DOCUMENTATION</a>
+        // ENCRYPTION: 256-BIT // LATENCY: 0.04ms // NODE: US-EAST-VA
     </div>
 
     <script>

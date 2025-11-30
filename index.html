@@ -67,8 +67,6 @@
             opacity: 0;
         }
 
-        /* NOTE: .subtitle section has been removed */
-
         .motto {
             font-size: 0.55rem;
             color: #333;
@@ -99,7 +97,6 @@
             position: relative;
             background: rgba(0, 0, 0, 0.5);
             margin-bottom: 15px;
-            /* Adds space between buttons */
         }
 
         .terminal-btn:hover {
@@ -115,7 +112,6 @@
             padding: 8px 18px;
             font-size: 0.65rem;
             pointer-events: none;
-            /* Makes it unclickable */
             animation-delay: 6s;
         }
 
@@ -132,14 +128,24 @@
             animation: blink 1s infinite;
         }
 
-        /* --- FOOTER --- */
+        /* --- FOOTER (WITH REALTIME IDS) --- */
         .footer {
             position: absolute;
             bottom: 30px;
+            width: 100%;
+            text-align: center;
+            /* ----------------------- */
             font-size: 0.55rem;
             color: #1f1f1f;
             letter-spacing: 0.05rem;
-            font-family: monospace;
+            font-family: 'Courier New', Courier, monospace;
+        }
+
+        .footer #latency-val,
+        .footer #node-loc {
+            color: #333;
+            /* Make the changing values slightly lighter */
+            transition: color 0.5s;
         }
 
         @keyframes fadeUp {
@@ -191,7 +197,8 @@
 
     <div class="footer">
         <a href="about.html" style="color: #444; text-decoration: none; margin-right: 15px;">DOCUMENTATION</a>
-        // ENCRYPTION: 256-BIT // LATENCY: 0.04ms // NODE: US-EAST-VA
+        // ENCRYPTION: 256-BIT // LATENCY: <span id="latency-val">0.04ms</span> // NODE: <span
+            id="node-loc">US-EAST-VA</span>
     </div>
 
     <script>
@@ -202,6 +209,23 @@
             "background: #000; color: #ddd; padding: 5px;"
         );
 
+        // Function to simulate real-time footer updates
+        function updateSystemStatus() {
+            // 1. Latency fluctuation (0.03ms to 0.09ms, simulating high speed)
+            const newLatency = (Math.random() * 0.06 + 0.03).toFixed(2);
+            document.getElementById('latency-val').textContent = newLatency + 'ms';
+
+            // 2. Node location switch (Global financial/data hubs)
+            const nodes = ['NY-WALLST', 'CHI-MERC', 'LDN-CITY', 'TYO-NIKKEI', 'SNG-EXCH'];
+            const randomNode = nodes[Math.floor(Math.random() * nodes.length)];
+            document.getElementById('node-loc').textContent = randomNode;
+        }
+
+        // Run the function every 3.5 seconds for a subtle change
+        setInterval(updateSystemStatus, 3500);
+
+
+        // --- PARTICLE SYSTEM LOGIC (Existing Code) ---
         const canvas = document.getElementById('neural-net');
         const ctx = canvas.getContext('2d');
         let width, height;
@@ -235,6 +259,7 @@
         function init() {
             resize(); particles = [];
             for (let i = 0; i < config.particleCount; i++) particles.push(new Node());
+            updateSystemStatus(); // Initialize footer status on load
         }
 
         function animate() {

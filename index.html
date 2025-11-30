@@ -128,23 +128,23 @@
             animation: blink 1s infinite;
         }
 
-        /* --- FOOTER (WITH REALTIME IDS) --- */
+        /* --- FOOTER (FIXED ALIGNMENT AND Z-INDEX) --- */
         .footer {
             position: absolute;
             bottom: 30px;
             width: 100%;
             text-align: center;
-            /* ----------------------- */
+            z-index: 10;
+            /* 👈 THE CLICK FIX: Forces footer above the main content area */
             font-size: 0.55rem;
             color: #1f1f1f;
             letter-spacing: 0.05rem;
-            font-family: 'Courier New', Courier, monospace;
+            font-family: monospace;
         }
 
         .footer #latency-val,
         .footer #node-loc {
             color: #333;
-            /* Make the changing values slightly lighter */
             transition: color 0.5s;
         }
 
@@ -211,17 +211,17 @@
 
         // Function to simulate real-time footer updates
         function updateSystemStatus() {
-            // 1. Latency fluctuation (0.03ms to 0.09ms, simulating high speed)
+            // 1. Latency fluctuation
             const newLatency = (Math.random() * 0.06 + 0.03).toFixed(2);
             document.getElementById('latency-val').textContent = newLatency + 'ms';
 
-            // 2. Node location switch (Global financial/data hubs)
+            // 2. Node location switch
             const nodes = ['NY-WALLST', 'CHI-MERC', 'LDN-CITY', 'TYO-NIKKEI', 'SNG-EXCH'];
             const randomNode = nodes[Math.floor(Math.random() * nodes.length)];
             document.getElementById('node-loc').textContent = randomNode;
         }
 
-        // Run the function every 3.5 seconds for a subtle change
+        // Run the function every 3.5 seconds
         setInterval(updateSystemStatus, 3500);
 
 

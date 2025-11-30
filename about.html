@@ -4,9 +4,9 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Nova Aetus Computing</title>
+    <title>NAC :: Documentation</title>
     <style>
-        /* --- CORE SETTINGS --- */
+        /* [Same CSS as index.html for consistency] */
         :root {
             --bg-color: #050505;
             --text-main: #666666;
@@ -26,13 +26,11 @@
             width: 100%;
             background-color: var(--bg-color);
             overflow: hidden;
-            /* Lock scroll, full page feel */
             font-family: var(--font-stack);
             color: var(--text-main);
             cursor: crosshair;
         }
 
-        /* --- BACKGROUND CANVAS --- */
         #neural-net {
             position: absolute;
             top: 0;
@@ -43,7 +41,6 @@
             opacity: 0.3;
         }
 
-        /* --- MAIN CONTAINER --- */
         .interface {
             position: relative;
             z-index: 1;
@@ -54,75 +51,69 @@
             align-items: center;
             text-align: center;
             user-select: none;
+            padding: 0 5%;
+            /* Padding for responsiveness */
         }
 
-        /* --- TYPOGRAPHY & ANIMATIONS --- */
-        h1 {
-            font-size: 1.4rem;
-            letter-spacing: 0.8rem;
+        /* --- Custom Styles for About Page --- */
+        .manifesto-header {
+            font-size: 1.2rem;
+            letter-spacing: 0.5rem;
             text-transform: uppercase;
             font-weight: 400;
             color: #777;
-            margin-bottom: 1.5rem;
-            animation: fadeUp 2s ease-out forwards;
+            margin-bottom: 3rem;
+            animation: fadeUp 1.5s ease-out forwards;
             opacity: 0;
+            border-bottom: 1px solid #222;
+            padding-bottom: 15px;
         }
 
-        .subtitle {
-            font-size: 0.7rem;
-            letter-spacing: 0.2rem;
-            color: var(--text-sub);
-            margin-bottom: 2rem;
+        .manifesto-section {
+            width: 100%;
+            max-width: 650px;
+            margin-bottom: 25px;
+            padding: 15px;
+            border-left: 2px solid #333;
+            text-align: left;
             animation: fadeUp 3s ease-out forwards;
             opacity: 0;
+            line-height: 1.5;
+            font-size: 0.75rem;
         }
 
-        .motto {
-            font-size: 0.55rem;
-            color: #333;
-            font-style: italic;
-            letter-spacing: 0.15rem;
-            margin-bottom: 4rem;
-            animation: fadeUp 4s ease-out forwards;
-            opacity: 0;
-        }
-
-        .terminal-btn {
-            text-decoration: none;
-            color: #555;
-            font-size: 0.7rem;
-            border: 1px solid #222;
-            padding: 12px 24px;
-            transition: all 0.3s ease;
+        .manifesto-section strong {
+            color: #777;
+            text-transform: uppercase;
             letter-spacing: 0.1rem;
+            display: block;
+            margin-bottom: 8px;
+            font-size: 0.7rem;
+        }
+
+        .manifesto-section:nth-child(3) {
+            animation-delay: 0.5s;
+        }
+
+        .manifesto-section:nth-child(4) {
+            animation-delay: 1.0s;
+        }
+
+        .back-link {
+            text-decoration: none;
+            color: #444;
+            font-size: 0.65rem;
+            margin-top: 50px;
+            transition: color 0.3s;
             animation: fadeUp 5s ease-out forwards;
             opacity: 0;
-            position: relative;
-            background: rgba(0, 0, 0, 0.5);
         }
 
-        .terminal-btn:hover {
-            border-color: #444;
+        .back-link:hover {
             color: #888;
-            background: rgba(20, 20, 20, 0.8);
         }
 
-        .cursor {
-            display: inline-block;
-            width: 8px;
-            background-color: #555;
-            animation: blink 1s infinite;
-        }
-
-        .footer {
-            position: absolute;
-            bottom: 30px;
-            font-size: 0.55rem;
-            color: #1f1f1f;
-            letter-spacing: 0.05rem;
-            font-family: monospace;
-        }
-
+        /* --- ANIMATIONS --- */
         @keyframes fadeUp {
             0% {
                 opacity: 0;
@@ -134,18 +125,6 @@
                 transform: translateY(0);
             }
         }
-
-        @keyframes blink {
-
-            0%,
-            100% {
-                opacity: 1;
-            }
-
-            50% {
-                opacity: 0;
-            }
-        }
     </style>
 </head>
 
@@ -154,28 +133,38 @@
     <canvas id="neural-net"></canvas>
 
     <div class="interface">
-        <h1>NOVA AETUS COMPUTING</h1>
 
-        <div class="subtitle">
-            STOCHASTIC CALCULUS &middot; NEURAL ARCHITECTURES &middot; ALPHA
+        <div class="manifesto-header">
+            SYSTEM.DOCUMENTATION
         </div>
 
-        <div class="motto">
-            "EX SILENTIO, SCIENTIA"
+        <div class="manifesto-section">
+            <strong>MISSION STATEMENT</strong>
+            We are a computational research firm operating at the confluence of **Stochastic Mathematics** and **Machine
+            Intelligence**. Our mandate is the generation of non-correlated, absolute **Alpha** through proprietary
+            infrastructure and predictive architectures.
         </div>
 
-        <a href="mailto:contact@novaaetus.com?subject=NOVA%20HANDSHAKE%20%3A%3A%20[SECURE]" class="terminal-btn">
-            INITIATE HANDSHAKE<span class="cursor">_</span>
+        <div class="manifesto-section">
+            <strong>THE COLLECTIVE</strong>
+            Nova Aetus Computing is led by a private assembly of PhD-level researchers and systems architects with
+            backgrounds in secure infrastructure, theoretical physics, and high-frequency market dynamics. Our
+            competitive edge is expertise, proprietary code, and a culture of absolute operational silence.
+        </div>
+
+        <div class="manifesto-section">
+            <strong>OPERATIONAL ETHOS</strong>
+            We maintain a zero-disclosure policy. Our intellectual property is our only product. We do not hire
+            externally; we select. Public presence is minimal. In our business, **silence is a competitive advantage.**
+        </div>
+
+        <a href="index.html" class="back-link">
+            // RETURN TO CONSOLE [HOME]
         </a>
-
-        <div class="footer">
-            <a href="about.html" style="color: #444; text-decoration: none; margin-right: 15px;">DOCUMENTATION</a>
-            //ENCRYPTION: 256-BIT // LATENCY: 0.04ms // NODE: US-EAST-VA
-        </div>
     </div>
 
     <script>
-        // SOC ANALYST CONSOLE LOG
+        // [Same JavaScript for the Particle System remains here]
         console.log(
             "%c NOVA AETUS COMPUTING %c \nSYSTEM: ONLINE \nTARGET: ALPHA \nCONTACT: ENCRYPTED",
             "background: #333; color: #bada55; padding: 5px; font-weight: bold;",
